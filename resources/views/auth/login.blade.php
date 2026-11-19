@@ -8,7 +8,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="min-h-screen bg-slate-950 flex items-center justify-center p-4">
-<div class="w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden">
+<div class="w-full max-w-lg bg-white rounded-2xl shadow-2xl overflow-hidden">
     <div class="bg-gradient-to-r from-slate-900 to-slate-800 p-6 text-center border-b border-amber-500/30">
         <div class="inline-flex w-12 h-12 rounded-xl bg-gradient-to-br from-amber-400 to-yellow-600 items-center justify-center text-slate-950 font-bold text-2xl mb-2">✦</div>
         <h1 class="text-xl font-bold text-white">{{ $businessName ?? 'thrumble.jewellery' }}</h1>
@@ -46,6 +46,46 @@
             </div>
             <button type="submit" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-semibold py-2.5 rounded-lg text-sm transition">Sign In</button>
         </form>
+
+            @php
+                $demoUsers = [
+                    ['name' => 'Rajesh Zaveri', 'role' => 'Admin / Owner', 'email' => 'admin@thrumble.jewellery'],
+                    ['name' => 'Meera Deshmukh', 'role' => 'Branch Manager', 'email' => 'manager@thrumble.jewellery'],
+                    ['name' => 'Vikram Kapoor', 'role' => 'Branch Manager (Bandra)', 'email' => 'vikram@thrumble.jewellery'],
+                    ['name' => 'Suresh Kulkarni', 'role' => 'Cashier', 'email' => 'cashier@thrumble.jewellery'],
+                    ['name' => 'Ananya Sharma', 'role' => 'Salesperson', 'email' => 'ananya@thrumble.jewellery'],
+                    ['name' => 'Karigar Rahim Bhai', 'role' => 'Artisan (Karigar)', 'email' => 'rahim@thrumble.jewellery'],
+                ];
+            @endphp
+            <div class="mt-6 border-t border-slate-200 pt-4">
+                <h2 class="text-xs font-semibold text-slate-600 uppercase">Demo Auto Login</h2>
+                <p class="text-xs text-slate-500 mt-1 mb-3">Click any user below to fill in their credentials and sign in automatically. Every demo account uses the password <code class="bg-slate-100 px-1 rounded">password</code>.</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    @foreach($demoUsers as $demo)
+                        <button type="button" data-demo-email="{{ $demo['email'] }}" data-demo-password="password"
+                                class="demo-login text-left border border-slate-200 hover:border-amber-500 hover:bg-amber-50 rounded-lg px-3 py-2 transition">
+                            <span class="block text-sm font-semibold text-slate-800">{{ $demo['name'] }}</span>
+                            <span class="block text-[11px] font-medium text-amber-700">{{ $demo['role'] }}</span>
+                            <span class="block text-[11px] text-slate-500 truncate">{{ $demo['email'] }}</span>
+                        </button>
+                    @endforeach
+                </div>
+            </div>
+            <script>
+                document.querySelectorAll('.demo-login').forEach((button) => {
+                    button.addEventListener('click', () => {
+                        const form = document.querySelector('form');
+                        form.querySelector('#email').value = button.dataset.demoEmail;
+                        form.querySelector('#password').value = button.dataset.demoPassword;
+                        document.querySelectorAll('.demo-login').forEach((b) => b.disabled = true);
+                        form.requestSubmit();
+                    });
+                });
+            </script>
+    </div>
+    <div class="bg-slate-50 border-t border-slate-200 px-6 py-3 text-center text-[11px] text-slate-500">
+        Developed by <a href="https://www.attrixtech.com" target="_blank" rel="noopener" class="font-semibold text-slate-700 hover:text-amber-700">Attrix Technologies</a>
+        and Marketed by <a href="https://www.infusionn.in" target="_blank" rel="noopener" class="font-semibold text-slate-700 hover:text-amber-700">Infusionn Pvt. Ltd.</a>
     </div>
 </div>
 </body>
