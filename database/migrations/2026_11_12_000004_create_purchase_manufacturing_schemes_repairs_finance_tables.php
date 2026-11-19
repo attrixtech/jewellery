@@ -101,7 +101,7 @@ return new class extends Migration
             $table->string('scheme_no', 40)->unique();
             $table->foreignId('branch_id')->constrained()->cascadeOnDelete();
             $table->foreignId('customer_id')->constrained()->cascadeOnDelete();
-            $table->string('scheme_name')->default('Jewel Dhan 11+1 Plan');
+            $table->string('scheme_name')->default('Thrumble Dhan 11+1 Plan');
             $table->decimal('monthly_amount', 12, 2);
             $table->integer('duration_months')->default(11);
             $table->decimal('bonus_amount', 12, 2)->default(0);

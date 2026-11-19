@@ -60,7 +60,7 @@ class JewelleryErpTest extends TestCase
 
     public function test_all_modules_load_for_authenticated_admin(): void
     {
-        $admin = User::where('email', 'admin@jewelerp.in')->firstOrFail();
+        $admin = User::where('email', 'admin@thrumble.jewellery')->firstOrFail();
         $this->actingAs($admin);
 
         $routes = [
@@ -92,7 +92,7 @@ class JewelleryErpTest extends TestCase
 
     public function test_pos_checkout_creates_invoice_and_marks_item_sold(): void
     {
-        $admin = User::where('email', 'admin@jewelerp.in')->firstOrFail();
+        $admin = User::where('email', 'admin@thrumble.jewellery')->firstOrFail();
         $this->actingAs($admin);
 
         $item = InventoryItem::with('product')->where('status', 'available')->firstOrFail();
@@ -145,22 +145,22 @@ class JewelleryErpTest extends TestCase
         }
 
         $this->post('/pos/checkout', [])->assertRedirect('/login');
-        $this->post('/quick-login', ['email' => 'admin@jewelerp.in'])->assertStatus(404);
+        $this->post('/quick-login', ['email' => 'admin@thrumble.jewellery'])->assertStatus(404);
     }
 
     public function test_login_requires_valid_password_and_active_account(): void
     {
         $this->post('/login', [
-            'email' => 'admin@jewelerp.in',
+            'email' => 'admin@thrumble.jewellery',
             'password' => 'wrong-password',
         ])->assertSessionHasErrors('email');
         $this->assertGuest();
 
-        $admin = User::where('email', 'admin@jewelerp.in')->firstOrFail();
+        $admin = User::where('email', 'admin@thrumble.jewellery')->firstOrFail();
         $admin->update(['is_active' => false]);
 
         $this->post('/login', [
-            'email' => 'admin@jewelerp.in',
+            'email' => 'admin@thrumble.jewellery',
             'password' => 'password',
         ])->assertSessionHasErrors('email');
         $this->assertGuest();
@@ -168,7 +168,7 @@ class JewelleryErpTest extends TestCase
         $admin->update(['is_active' => true]);
 
         $this->post('/login', [
-            'email' => 'admin@jewelerp.in',
+            'email' => 'admin@thrumble.jewellery',
             'password' => 'password',
         ])->assertRedirect('/');
         $this->assertAuthenticatedAs($admin);
@@ -176,7 +176,7 @@ class JewelleryErpTest extends TestCase
 
     public function test_rates_sync_endpoint(): void
     {
-        $admin = User::where('email', 'admin@jewelerp.in')->firstOrFail();
+        $admin = User::where('email', 'admin@thrumble.jewellery')->firstOrFail();
         $this->actingAs($admin);
 
         $response = $this->post(route('rates.sync'));
@@ -185,7 +185,7 @@ class JewelleryErpTest extends TestCase
 
     public function test_rate_deletion(): void
     {
-        $admin = User::where('email', 'admin@jewelerp.in')->firstOrFail();
+        $admin = User::where('email', 'admin@thrumble.jewellery')->firstOrFail();
         $this->actingAs($admin);
 
         $rate = \App\Models\MetalRate::firstOrFail();
@@ -198,7 +198,7 @@ class JewelleryErpTest extends TestCase
 
     public function test_product_deletion(): void
     {
-        $admin = User::where('email', 'admin@jewelerp.in')->firstOrFail();
+        $admin = User::where('email', 'admin@thrumble.jewellery')->firstOrFail();
         $this->actingAs($admin);
 
         $product = \App\Models\Product::firstOrFail();
@@ -211,7 +211,7 @@ class JewelleryErpTest extends TestCase
 
     public function test_inventory_item_deletion(): void
     {
-        $admin = User::where('email', 'admin@jewelerp.in')->firstOrFail();
+        $admin = User::where('email', 'admin@thrumble.jewellery')->firstOrFail();
         $this->actingAs($admin);
 
         $item = \App\Models\InventoryItem::firstOrFail();
@@ -224,7 +224,7 @@ class JewelleryErpTest extends TestCase
 
     public function test_inventory_item_creation_with_empty_optional_fields(): void
     {
-        $admin = User::where('email', 'admin@jewelerp.in')->firstOrFail();
+        $admin = User::where('email', 'admin@thrumble.jewellery')->firstOrFail();
         $this->actingAs($admin);
 
         $product = \App\Models\Product::firstOrFail();
@@ -253,7 +253,7 @@ class JewelleryErpTest extends TestCase
 
     public function test_settings_page_and_business_name_update(): void
     {
-        $admin = User::where('email', 'admin@jewelerp.in')->firstOrFail();
+        $admin = User::where('email', 'admin@thrumble.jewellery')->firstOrFail();
         $this->actingAs($admin);
 
         $getRes = $this->get('/settings');
@@ -291,7 +291,7 @@ class JewelleryErpTest extends TestCase
 
     public function test_delete_operations_across_all_modules(): void
     {
-        $admin = User::where('email', 'admin@jewelerp.in')->firstOrFail();
+        $admin = User::where('email', 'admin@thrumble.jewellery')->firstOrFail();
         $this->actingAs($admin);
 
         // Delete Customer
@@ -442,7 +442,7 @@ class JewelleryErpTest extends TestCase
 
     public function test_live_metal_rates_sync_domestic_rates(): void
     {
-        $admin = User::where('email', 'admin@jewelerp.in')->firstOrFail();
+        $admin = User::where('email', 'admin@thrumble.jewellery')->firstOrFail();
         $this->actingAs($admin);
 
         $response = $this->post(route('rates.sync'), ['city' => 'guwahati']);
@@ -457,7 +457,7 @@ class JewelleryErpTest extends TestCase
 
     public function test_crm_birthday_and_anniversary_campaign_timing_windows(): void
     {
-        $admin = User::where('email', 'admin@jewelerp.in')->firstOrFail();
+        $admin = User::where('email', 'admin@thrumble.jewellery')->firstOrFail();
         $this->actingAs($admin);
 
         // Create a customer with birthday in 3 days and anniversary in 20 days

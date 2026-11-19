@@ -23,12 +23,12 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         View::composer('*', function ($view) {
-            $businessName = 'JewelERP';
+            $businessName = 'thrumble.jewellery';
             $tagline = 'Jewellery Suite';
 
             if (Schema::hasTable('settings')) {
                 try {
-                    $businessName = Setting::get('business_name', 'JewelERP') ?: 'JewelERP';
+                    $businessName = Setting::get('business_name', 'thrumble.jewellery') ?: 'thrumble.jewellery';
                     $tagline = Setting::get('tagline', 'Jewellery Suite') ?: 'Jewellery Suite';
                 } catch (\Throwable) {
                     // fallback

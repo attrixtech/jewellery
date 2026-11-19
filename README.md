@@ -1,4 +1,4 @@
-# JewelERP — Complete Jewellery & Bullion Management ERP
+# thrumble.jewellery — Complete Jewellery & Bullion Management ERP
 
 <p align="center">
   <img src="https://img.shields.io/badge/Laravel-13.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel 13" />
@@ -9,7 +9,7 @@
   <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License" />
 </p>
 
-**JewelERP** is an enterprise-grade Jewellery Showroom & Chain Management System crafted specifically for the Indian jewellery retail ecosystem. It provides end-to-end management spanning live bullion rates, item-level BIS HUID tracking, specialized jewellery POS with dynamic wastage & making charges, old gold exchange valuation, karigar (artisan) job-work manufacturing, 11+1 gold savings schemes, multi-branch operations, and GST accounting.
+**thrumble.jewellery** is an enterprise-grade Jewellery Showroom & Chain Management System crafted specifically for the Indian jewellery retail ecosystem. It provides end-to-end management spanning live bullion rates, item-level BIS HUID tracking, specialized jewellery POS with dynamic wastage & making charges, old gold exchange valuation, karigar (artisan) job-work manufacturing, 11+1 gold savings schemes, multi-branch operations, and GST accounting.
 
 ---
 
@@ -130,11 +130,11 @@ All demo accounts use the default password: `password`
 
 | Role | Email | Password | Primary Access |
 | :--- | :--- | :--- | :--- |
-| **Admin / Owner** | `admin@jewelerp.in` | `password` | Complete access to all 24 modules, audit logs & settings |
-| **Branch Manager** | `manager@jewelerp.in` | `password` | POS, Inventory, Rates, Approvals, Staff & Reports |
-| **Cashier** | `cashier@jewelerp.in` | `password` | POS, Checkout, Scheme Installments & Repair Receipts |
-| **Salesperson** | `ananya@jewelerp.in` | `password` | POS, Customer CRM & Custom Order Bookings |
-| **Artisan (Karigar)** | `rahim@jewelerp.in` | `password` | Workshop jobs, Manufacturing stages & Repair workbench |
+| **Admin / Owner** | `admin@thrumble.jewellery` | `password` | Complete access to all 24 modules, audit logs & settings |
+| **Branch Manager** | `manager@thrumble.jewellery` | `password` | POS, Inventory, Rates, Approvals, Staff & Reports |
+| **Cashier** | `cashier@thrumble.jewellery` | `password` | POS, Checkout, Scheme Installments & Repair Receipts |
+| **Salesperson** | `ananya@thrumble.jewellery` | `password` | POS, Customer CRM & Custom Order Bookings |
+| **Artisan (Karigar)** | `rahim@thrumble.jewellery` | `password` | Workshop jobs, Manufacturing stages & Repair workbench |
 
 ---
 

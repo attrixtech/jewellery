@@ -10,7 +10,7 @@
             @csrf
             <select name="branch_id" class="w-full border border-slate-300 rounded-lg px-3 py-2">@foreach($branches as $b)<option value="{{ $b->id }}">{{ $b->name }}</option>@endforeach</select>
             <select name="customer_id" required class="w-full border border-slate-300 rounded-lg px-3 py-2">@foreach($customers as $c)<option value="{{ $c->id }}">{{ $c->name }} ({{ $c->phone }})</option>@endforeach</select>
-            <input type="text" name="scheme_name" value="Jewel Dhan 11+1 Plan" required class="w-full border border-slate-300 rounded-lg px-3 py-2">
+            <input type="text" name="scheme_name" value="Thrumble Dhan 11+1 Plan" required class="w-full border border-slate-300 rounded-lg px-3 py-2">
             <div class="grid grid-cols-2 gap-2">
                 <input type="number" name="monthly_amount" value="5000" required placeholder="Monthly ₹" class="border border-slate-300 rounded-lg px-2.5 py-2">
                 <input type="number" name="duration_months" value="11" required placeholder="Months" class="border border-slate-300 rounded-lg px-2.5 py-2">

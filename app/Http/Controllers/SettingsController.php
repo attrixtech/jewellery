@@ -11,10 +11,10 @@ class SettingsController extends Controller
     public function index()
     {
         $settings = [
-            'business_name' => Setting::get('business_name', 'JewelERP Showroom'),
+            'business_name' => Setting::get('business_name', 'thrumble.jewellery Showroom'),
             'tagline' => Setting::get('tagline', 'Fine Jewellery & Bullion Suite'),
             'phone' => Setting::get('phone', '+91 22 2345 6789'),
-            'email' => Setting::get('email', 'contact@jewelerp.in'),
+            'email' => Setting::get('email', 'contact@thrumble.jewellery'),
             'address' => Setting::get('address', '142 Sheikh Memon Street, Zaveri Bazaar, Mumbai'),
             'gstin' => Setting::get('gstin', '27AABCS1429B1Z5'),
             'pan_number' => Setting::get('pan_number', 'ABCPS1234D'),

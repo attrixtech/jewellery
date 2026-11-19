@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In — {{ $businessName ?? 'JewelERP' }}</title>
+    <title>Sign In — {{ $businessName ?? 'thrumble.jewellery' }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="min-h-screen bg-slate-950 flex items-center justify-center p-4">
 <div class="w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden">
     <div class="bg-gradient-to-r from-slate-900 to-slate-800 p-6 text-center border-b border-amber-500/30">
         <div class="inline-flex w-12 h-12 rounded-xl bg-gradient-to-br from-amber-400 to-yellow-600 items-center justify-center text-slate-950 font-bold text-2xl mb-2">✦</div>
-        <h1 class="text-xl font-bold text-white">{{ $businessName ?? 'JewelERP' }}</h1>
+        <h1 class="text-xl font-bold text-white">{{ $businessName ?? 'thrumble.jewellery' }}</h1>
         <p class="text-xs text-amber-300/90 mt-1">{{ $businessTagline ?? 'Jewellery Suite' }}</p>
     </div>
 
@@ -31,7 +32,7 @@
             @csrf
             <div>
                 <label for="email" class="block text-xs font-semibold text-slate-600 uppercase mb-1">Email Address</label>
-                <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus autocomplete="email" placeholder="you@jewelerp.in" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none">
+                <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus autocomplete="email" placeholder="you@thrumble.jewellery" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none">
             </div>
             <div>
                 <label for="password" class="block text-xs font-semibold text-slate-600 uppercase mb-1">Password</label>

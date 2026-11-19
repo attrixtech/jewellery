@@ -13,7 +13,7 @@
         @foreach($items as $item)
             <div class="bg-white border-2 border-dashed border-slate-300 rounded-xl p-3.5 text-xs space-y-1.5">
                 <div class="flex justify-between items-center border-b border-slate-100 pb-1">
-                    <span class="font-bold text-slate-900">{{ strtoupper($businessName ?? 'JEWELERP') }}</span>
+                    <span class="font-bold text-slate-900">{{ strtoupper($businessName ?? 'THRUMBLE.JEWELLERY') }}</span>
                     <span class="px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 font-bold text-[10px]">{{ $item->purity }} {{ $item->product->metal_type ?? '' }}</span>
                 </div>
                 <div class="font-semibold text-slate-800 truncate">{{ $item->product->name ?? $item->item_code }}</div>
